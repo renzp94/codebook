@@ -12,8 +12,8 @@ const config = {
 		target: '#svelte',
 		adapter: adapter({
 			// default options are shown
-			pages: 'dist',
-			assets: 'dist',
+			pages: 'public',
+			assets: 'public',
 			fallback: null
 		})
 	}
