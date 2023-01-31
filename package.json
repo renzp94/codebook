@@ -15,7 +15,6 @@
     "format": "prettier --plugin-search-dir . --write ."
   },
   "devDependencies": {
-    "@sveltejs/adapter-static": "^1.0.5",
     "@sveltejs/kit": "^1.3.6",
     "@types/nprogress": "^0.2.0",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
@@ -26,6 +25,7 @@
     "prettier": "^2.8.0",
     "prettier-plugin-svelte": "^2.8.1",
     "svelte": "^3.54.0",
+    "svelte-adapter-deno": "^0.9.0",
     "svelte-check": "^3.0.1",
     "svelte-preprocess": "^4.0.0",
     "tslib": "^2.0.0",

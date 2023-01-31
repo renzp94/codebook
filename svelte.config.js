@@ -1,5 +1,5 @@
 import { vitePreprocess } from '@sveltejs/kit/vite';
-import adapter from '@sveltejs/adapter-static';
+import adapter from 'svelte-adapter-deno';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -8,12 +8,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: adapter({
-			// default options are shown
-			pages: 'public',
-			assets: 'public',
-			fallback: null
-		})
+		adapter: adapter()
 	}
 };
 
