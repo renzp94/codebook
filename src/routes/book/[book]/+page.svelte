@@ -1,50 +1,18 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-
-	export const load: Load = async ({
-		page: {
-			params: { book }
-		},
-		fetch
-	}) => {
-		const res = await fetch(`${book}.json`);
-
-		if (res.ok) {
-			const articles = await res.json();
-
-			return {
-				props: { 
-					articles,
-					category: book
-				}
-			};
-		}
-
-		const { message } = await res.json();
-
-		return {
-			error: new Error(message)
-		};
-	};
-</script>
-
 <script lang="ts">
 	import { dateFormat } from '$lib/utils';
-	import type { Article } from '$lib/types';
-
-	export let category;
-	export let articles: Array<Article>;
+	import type { PageData } from './$types';
+	export let data: PageData
 </script>
 
 <svelte:head>
-	<title>CODE BOOK | {category}</title>
+	<title>CODE BOOK | {data.category}</title>
 </svelte:head>
 
-<h1 class="category">{category}</h1>
+<h1 class="category">{data.category}</h1>
 <ul class="list">
-	{#each articles as art (art.id)}
+	{#each data.articles as art (art.id)}
 		<li>
-			<a class="item" href={`/article/${category}/${art.id}`}>
+			<a class="item" href={`/article/${data.category}/${art.id}`}>
 				<div class="title">{art.title}</div>
 				<div class="time">{dateFormat(art.time)}</div>
 			</a>

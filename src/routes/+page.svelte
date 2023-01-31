@@ -1,21 +1,7 @@
-<script context="module" lang="ts">
-	export async function load({ fetch }) {
-		const res = await fetch(`index.json`);
-		if (res.ok) {
-			const books = await res.json();
-			return { props: { books } };
-		}
-
-		return {
-			status: res.status,
-			error: new Error(`Could not load index.json`)
-		};
-	}
-</script>
-
 <script lang="ts">
-	import Book from '$lib/Book/index.svelte';
-	export let books: Array<string>;
+	import Book from '$lib/components/Book.svelte';
+	import type { PageData } from './$types';
+	export let data: PageData;
 </script>
 
 <svelte:head>
@@ -24,7 +10,7 @@
 
 <div class="home">
 	<div class="book__list">
-		{#each books as book, index (`${book}_${index}`)}
+		{#each data.books as book, index (`${book}_${index}`)}
 			<div class="book__item">
 				<Book title={book} url={`/book/${book}`} />
 			</div>

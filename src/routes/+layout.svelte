@@ -1,6 +1,6 @@
 <script lang="ts">
 	import 'nprogress/nprogress.css'
-	import BackTop from '$lib/BackTop/index.svelte';
+	import BackTop from '$lib/components/BackTop.svelte';
 	import NProgress from 'nprogress'
 
 	NProgress.configure({ showSpinner: false })
