@@ -6,7 +6,12 @@ const config = {
 	// Consult https://github.com/sveltejs/svelte-preprocess
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-
+	onwarn: (warning, handler) => {
+		if(warning.code === "a11y-click-events-have-key-events"){
+			return
+		}
+		handler(warning)
+	},
 	kit: {
 		adapter: adapter()
 	}

@@ -12,7 +12,7 @@
 		<a href="/">
 			<img class="logo" src="/assets/images/logo.png" alt="code book logo" />
 		</a>
-		<a class="github" href="https://github.com/renzp94" target="_blank">
+		<a class="github" href="https://github.com/renzp94" target="_blank" rel="noreferrer">
 			<i class="iconfont icon-github" />
 		</a>
 	</header>
