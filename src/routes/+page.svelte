@@ -18,10 +18,9 @@
 	</div>
 </div>
 
-<style>
+<style lang="less">
 	.home {
 		--gap: 0.875rem;
-
 		text-align: center;
 		margin: 1.5rem 0 2.5rem;
 	}

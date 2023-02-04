@@ -22,7 +22,7 @@
   </div>
 </section>
 
-<style>
+<style lang="less">
   .info {
     display: flex;
     align-items: center;
@@ -31,7 +31,6 @@
     font-size: 12px;
     margin-bottom: 0.75rem;
   }
-
   .author {
     margin-right: 1.5rem;
   }

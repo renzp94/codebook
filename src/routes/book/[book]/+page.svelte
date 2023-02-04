@@ -20,7 +20,7 @@
 	{/each}
 </ul>
 
-<style>
+<style lang="less">
 	.category {
 		margin-top: 1.5rem;
 		background-color: var(--c-white);
@@ -56,10 +56,10 @@
 		white-space: nowrap;
 		text-overflow: ellipsis;
 		color: var(--c-gray-7);
-	}
-	.title:hover {
-		text-decoration: underline;
-		color: var(--tc-primary);
+		&:hover {
+			text-decoration: underline;
+			color: var(--tc-primary);
+		}
 	}
 
 	.time {

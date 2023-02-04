@@ -23,7 +23,7 @@
   <h5 class="author">By @ {author}</h5>
 </a>
 
-<style>
+<style lang="less">
   .book {
     height: 0;
     width: 100%;
@@ -40,12 +40,10 @@
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
   }
-
-  .book:hover {
-    transform: scale(1.05);
-  }
-
   .title {
     padding: 0 0.75rem;
     word-break: break-all;
@@ -54,7 +52,6 @@
     align-items: center;
     justify-content: center;
   }
-
   .author {
     margin: 10% 0;
   }

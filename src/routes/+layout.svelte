@@ -22,7 +22,7 @@
 	<BackTop />
 </section>
 
-<style>
+<style lang="less">
 	section {
 		width: 71.25rem;
 		margin: 0 auto;
