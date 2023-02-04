@@ -7,28 +7,36 @@
     typeof document !== 'undefined' ? document.documentElement : null
 
   let visible = false
-  const onScroll = () => (visible = target?.scrollTop > visibleHeight)
+	const onScroll = () => {
+		if (target?.scrollTop) {
+			visible = target?.scrollTop > visibleHeight
+		}
+	}
 
-  const onScrollToTop = () => top(target, duration)
-  const top = (el, duration, top = 0) => {
-    const cubic = value => Math.pow(value, 3)
-    const easeInOutCubic = value =>
-      value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2
+  const onScrollToTop = () => {
+		if (target) {
+			top(target, duration)
+		}
+	}
+	const top = (el: Element, duration: number, top = 0) => {
+		const cubic = (value: number) => Math.pow(value, 3)
+		const easeInOutCubic = (value: number) =>
+			value < 0.5 ? cubic(value * 2) / 2 : 1 - cubic((1 - value) * 2) / 2
 
-    const beginTime = Date.now()
-    const beginValue = el.scrollTop
-    const rAF = window.requestAnimationFrame || (func => setTimeout(func, 16))
-    const frameFunc = () => {
-      const progress = (Date.now() - beginTime) / duration
-      if (progress < 1) {
-        el.scrollTop = beginValue * (1 - easeInOutCubic(progress))
-        rAF(frameFunc)
-      } else {
-        el.scrollTop = top
-      }
-    }
-    rAF(frameFunc)
-  }
+		const beginTime = Date.now()
+		const beginValue = el.scrollTop
+		const rAF = window.requestAnimationFrame || ((func) => setTimeout(func, 16))
+		const frameFunc = () => {
+			const progress = (Date.now() - beginTime) / duration
+			if (progress < 1) {
+				el.scrollTop = beginValue * (1 - easeInOutCubic(progress))
+				rAF(frameFunc)
+			} else {
+				el.scrollTop = top
+			}
+		}
+		rAF(frameFunc)
+	}
   $: style = `bottom: ${bottom};right: ${right};display: ${
     visible ? 'flex' : 'none'
   }`
