@@ -1,12 +1,15 @@
 <script lang="ts">
-	import 'nprogress/nprogress.css'
+	import 'nprogress/nprogress.css';
 	import BackTop from '$lib/components/BackTop.svelte';
-	import NProgress from 'nprogress'
+	import NProgress from 'nprogress';
 
-	NProgress.configure({ showSpinner: false })
+	NProgress.configure({ showSpinner: false });
 </script>
 
-<svelte:window on:sveltekit:navigation-start="{() => NProgress.start()}" on:sveltekit:navigation-end="{() => NProgress.done()}"  />
+<svelte:window
+	on:sveltekit:navigation-start={() => NProgress.start()}
+	on:sveltekit:navigation-end={() => NProgress.done()}
+/>
 <section>
 	<header>
 		<a href="/">
