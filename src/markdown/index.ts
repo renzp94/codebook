@@ -39,7 +39,7 @@ export const loadMarkdownDir = (dir:string):Array<Article> => {
 			author,
 			status
 		}
-	}).filter(item => item?.status === 'done')
+	}).filter(item => process.env.NODE_ENV === 'development' || item?.status === 'done')
 
 	return articles
 }
