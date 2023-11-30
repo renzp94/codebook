@@ -38,9 +38,6 @@ jobs:
           version: latest
           run_install: true
 
-      - name: Build adapter
-        run: pnpm build
-
       - name: Build site
         run: pnpm build
         working-directory: .
