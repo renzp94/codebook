@@ -16,6 +16,9 @@ export const generateDoc = (markdown: string): string => {
 	const { data, content } = grayMatter(markdown)
 	// Render html from string
 	const renderer = new marked.Renderer()
+	renderer.link = (href: string, title: string, text: string) => {
+		return `<a href="${href}" target="_blank" ${title ? ` title="${title}"` : ''}>${text}</a>`;
+	};
 	const html = marked(content, {
 		renderer,
 		highlight: (code: string) => hljs.highlightAuto(code).value,
