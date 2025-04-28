@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Book from '$lib/components/Book.svelte';
-	import type { PageData } from './$types';
-	export let data: PageData;
+	import type { PageProps } from './$types';
+	const { data }: PageProps = $props();
 </script>
 
 <svelte:head>

@@ -1,11 +1,13 @@
 <script lang="ts">
-	export let visibleHeight = 300;
-	export let bottom = '5rem';
-	export let right = '0.625rem';
-	export let duration = 500;
-	export const target = typeof document !== 'undefined' ? document.documentElement : null;
+	const {
+		visibleHeight = 300,
+		bottom = '5rem',
+		right = '0.625rem',
+		duration = 500,
+		target = typeof document !== 'undefined' ? document.documentElement : null
+	} = $props();
 
-	let visible = false;
+	let visible = $state(false);
 	const onScroll = () => {
 		if (target?.scrollTop) {
 			visible = target?.scrollTop > visibleHeight;
@@ -36,11 +38,11 @@
 		};
 		rAF(frameFunc);
 	};
-	$: style = `bottom: ${bottom};right: ${right};display: ${visible ? 'flex' : 'none'}`;
+	const style = $derived(`bottom: ${bottom};right: ${right};display: ${visible ? 'flex' : 'none'}`);
 </script>
 
-<svelte:window on:scroll={onScroll} />
-<div class="back-top" {style} on:click={onScrollToTop}>
+<svelte:window onscroll={onScroll} />
+<div class="back-top" {style} onclick={onScrollToTop}>
 	<i class="iconfont icon-back-top" />
 </div>
 

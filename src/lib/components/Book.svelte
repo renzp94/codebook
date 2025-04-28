@@ -1,11 +1,13 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	const {
+		title,
+		author = 'CodeBook',
+		url
+	} = $props<{ title: string; author?: string; url: string }>();
 
-	export let title: string;
-	export let author: string = 'CodeBook';
-	export let url: string;
 	let book: Element;
-	let style: string;
+	let style = $state<string | undefined>(undefined);
 
 	const onResetSize = () => {
 		//   书本比例为18.4*26

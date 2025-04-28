@@ -2,20 +2,26 @@
 	import 'nprogress/nprogress.css';
 	import BackTop from '$lib/components/BackTop.svelte';
 	import NProgress from 'nprogress';
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	NProgress.configure({ showSpinner: false });
+
+	beforeNavigate(() => NProgress.start());
+	afterNavigate(() => NProgress.done());
 </script>
 
-<svelte:window
-	on:sveltekit:navigation-start={() => NProgress.start()}
-	on:sveltekit:navigation-end={() => NProgress.done()}
-/>
 <section>
 	<header>
 		<a href="/">
 			<img class="logo" src="/assets/images/logo.png" alt="code book logo" />
 		</a>
-		<a class="github" href="https://github.com/renzp94" target="_blank" rel="noreferrer">
+		<a
+			class="github"
+			href="https://github.com/renzp94"
+			aria-label="github"
+			target="_blank"
+			rel="noreferrer"
+		>
 			<i class="iconfont icon-github" />
 		</a>
 	</header>
